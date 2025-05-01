@@ -134,6 +134,17 @@ router.get('/getSite', async (req, res) => {
     res.status(500).send('Some Internal Server Error')
   }
 })
+router.get('/getAkhuwatSite', async (req, res) => {
+  try {
+    const siteID = req.params.id
+    const allProducts = await SiteInfo.findById('6813e35b576bd0e0fc7bad19')
+    res.send(allProducts)
+
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Some Internal Server Error')
+  }
+})
 
 router.post('/initializeSite', async (req, res) => {
   try {
